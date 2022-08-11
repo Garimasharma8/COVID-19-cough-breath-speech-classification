@@ -19,3 +19,5 @@ Experiment 7: Here we do a simple binary classification between COVID-19 positiv
 # Classification Results using k-NN classifier (10 fold CV)
 ![image](https://user-images.githubusercontent.com/97305078/184234148-b8bd0cc0-6780-43b3-9d31-aa983ef22706.png)
 
+# Summary: 
+Our proposed model can classify 5 types of cough sounds with an accuracy rate of 71.7%, 5 types of breath sounds with an accuracy rate of 72.2%, and 79.7% of speech sounds. The system offers the highest accuracy rate of 98.9% while performing bi-nary classification on COVID-19 and non-COVID-19 cough sounds.
