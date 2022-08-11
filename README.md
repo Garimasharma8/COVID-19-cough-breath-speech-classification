@@ -1,5 +1,5 @@
 # COVID-19-cough-breath-speech-classification
-## Objective: Our objective is to classify COVID-19 positive and COVID-19 negative users by analysing cough sounds, breath sounds, and speech signals. The analysis on cough and breath sounds was done on the following 5 classes for the first time: COVID-19 positive with cough, COVID- 19 positive without cough, healthy person with cough, healthy person without cough, and an asthmatic cough. For speech sounds there were only two classes: COVID-19 positive, and COVID-19 negative. 
+ Objective: Our objective is to classify COVID-19 positive and COVID-19 negative users by analysing cough sounds, breath sounds, and speech signals. The analysis on cough and breath sounds was done on the following 5 classes for the first time: COVID-19 positive with cough, COVID- 19 positive without cough, healthy person with cough, healthy person without cough, and an asthmatic cough. For speech sounds there were only two classes: COVID-19 positive, and COVID-19 negative. 
 
 # Methodology adopted:
 ![image](https://user-images.githubusercontent.com/97305078/184231317-8cd5456d-bb46-43c3-8451-37fa38f24800.png)
@@ -13,9 +13,9 @@ Experiment 5: Combine two modalities i.e. cough and breath to distinguish betwee
 Experiment 6: Distinguish between COVID-19 positive and COVID- 19 negative users from their speech samples only.  
 Experiment 7: Here we do a simple binary classification between COVID-19 positive cough sounds and COVID-19 negative cough sounds.
 
-# Feature visualization
+# Feature visualization using t-SNE
 ![image](https://user-images.githubusercontent.com/97305078/184231572-e0951bd1-3b14-4fa2-b0d6-8cfe21f7ef14.png)
 
-# Results
+# Classification Results using k-NN classifier (10 fold CV)
 ![image](https://user-images.githubusercontent.com/97305078/184234148-b8bd0cc0-6780-43b3-9d31-aa983ef22706.png)
 
