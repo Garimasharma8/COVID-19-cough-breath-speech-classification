@@ -12,11 +12,11 @@ x{i}= x{i}(:,1);  % monochannel
 [sp{i}, fp{i},tp{i},pp{i}]= spectrogram(x{i}, 128,120,128,fx{i},'yaxis');
 spectrogram(x{i}, 128,120,128,fx{i},'yaxis'); colorbar('off');
 saveas(gcf,['CC',num2str(i),'.jpg']);
-%IC{i}=rgb2gray(imread(sprintf('CC%d.jpg',i)));
-%lbpp{i}=extractLBPFeatures(IC{i},'NumNeighbors',8,'Radius',3,'Upright',false,'CellSize',[256 256]);  % Rotation invariant LBP
-%lbp1{i}=extractLBPFeatures(IC{i},'radius',3,'Normalization','L2'); % to get 59 dimentional vector
-%glcm1{i}=graycomatrix(IC{i});
-%haralick1{i}= getHaralick(glcm1{i},[1:14]);
+IC{i}=rgb2gray(imread(sprintf('CC%d.jpg',i)));
+lbpp{i}=extractLBPFeatures(IC{i},'NumNeighbors',8,'Radius',3,'Upright',false,'CellSize',[256 256]);  % Rotation invariant LBP
+lbp1{i}=extractLBPFeatures(IC{i},'radius',3,'Normalization','L2'); % to get 59 dimentional vector
+glcm1{i}=graycomatrix(IC{i});
+haralick1{i}= getHaralick(glcm1{i},[1:14]);
 end
 %% Covid non cough
 
@@ -29,11 +29,11 @@ x1{k}= x1{k}(:,1);  % monochannel
 [sp1{k}, fp1{k},tp1{k},pp1{k}]= spectrogram(x1{k}, 128,120,128,fx1{k},'yaxis');
 spectrogram(x1{k}, 128,120,128,fx1{k},'yaxis'); colorbar('off');
 saveas(gcf,['CNC',num2str(k),'.jpg']);
-%IC1{k}=rgb2gray(imread(sprintf('CNC%d.jpg',k)));
-%lbpp1{k}=extractLBPFeatures(IC1{k},'NumNeighbors',8,'Radius',3,'Upright',false,'CellSize',[256 256]);  % Rotation invariant LBP
-%lbp11{k}=extractLBPFeatures(IC1{k},'radius',3,'Normalization','L2'); % to get 59 dimentional vector
-%glcm11{k}=graycomatrix(IC1{k});
-%haralick11{k}= getHaralick(glcm11{k},[1:14]);
+IC1{k}=rgb2gray(imread(sprintf('CNC%d.jpg',k)));
+lbpp1{k}=extractLBPFeatures(IC1{k},'NumNeighbors',8,'Radius',3,'Upright',false,'CellSize',[256 256]);  % Rotation invariant LBP
+lbp11{k}=extractLBPFeatures(IC1{k},'radius',3,'Normalization','L2'); % to get 59 dimentional vector
+glcm11{k}=graycomatrix(IC1{k});
+haralick11{k}= getHaralick(glcm11{k},[1:14]);
 end
     
 
@@ -49,12 +49,14 @@ y{j}=y{j}(:,1); % monochannel
 [sh{j}, fh{j},th{j},ph{j}]= spectrogram(y{j}, 128,120,128,fy{j},'yaxis');
 spectrogram(y{j}, 128,120,128,fy{j},'yaxis'); colorbar('off');
 saveas(gcf,['NCC',num2str(j),'.jpg']);
-%INC{j}=rgb2gray(imread(sprintf('NCC%d.jpg',j)));
-%lbpnc{j}=extractLBPFeatures(INC{j}, 'NumNeighbors',8,'Radius',3,'Upright',false,'CellSize',[256 256]);  % full length LBP features
-%lbpncy{j}= extractLBPFeatures(INC{j},'radius',3,'Normalization','L2'); % to get 59 dimentional vector
-%glcm2{j}=graycomatrix(INC{j});
-%haralick2{j}=getHaralick(glcm2{j},[1:14]);
+INC{j}=rgb2gray(imread(sprintf('NCC%d.jpg',j)));
+lbpnc{j}=extractLBPFeatures(INC{j}, 'NumNeighbors',8,'Radius',3,'Upright',false,'CellSize',[256 256]);  % full length LBP features
+lbpncy{j}= extractLBPFeatures(INC{j},'radius',3,'Normalization','L2'); % to get 59 dimentional vector
+glcm2{j}=graycomatrix(INC{j});
+haralick2{j}=getHaralick(glcm2{j},[1:14]);
 end
+
+
 %% Healthy no cough
 addpath(genpath('/Users/garimasharma/Downloads/2021/data-to-share-covid-19-sounds/KDD_paper_data/healthyandroidnosymp/cough'));
 for m=1:138
@@ -65,11 +67,11 @@ y2{m}=y2{m}(:,1); % monochannel
 [sh2{m}, fh2{m},th2{m},ph2{m}]= spectrogram(y2{m}, 128,120,128,fy2{m},'yaxis');
 spectrogram(y2{m}, 128,120,128,fy2{m},'yaxis'); colorbar('off');
 saveas(gcf,['HNS',num2str(m),'.jpg']);
-%INC2{m}=rgb2gray(imread(sprintf('HNS%d.jpg',m)));
-%lbpnc2{m}=extractLBPFeatures(INC2{m}, 'NumNeighbors',8,'Radius',3,'Upright',false,'CellSize',[256 256]);  % full length LBP features
-%lbpncy2{m}= extractLBPFeatures(INC2{m},'radius',3,'Normalization','L2'); % to get 59 dimentional vector
-%glcmy2{m}=graycomatrix(INC2{m});
-%haralicky2{m}=getHaralick(glcmy2{m},[1:14]);
+INC2{m}=rgb2gray(imread(sprintf('HNS%d.jpg',m)));
+lbpnc2{m}=extractLBPFeatures(INC2{m}, 'NumNeighbors',8,'Radius',3,'Upright',false,'CellSize',[256 256]);  % full length LBP features
+lbpncy2{m}= extractLBPFeatures(INC2{m},'radius',3,'Normalization','L2'); % to get 59 dimentional vector
+glcmy2{m}=graycomatrix(INC2{m});
+haralicky2{m}=getHaralick(glcmy2{m},[1:14]);
 end
 
 %% Asthma cough
@@ -82,11 +84,11 @@ y3{n}=y3{n}(:,1); % monochannel
 [sh3{n}, fh3{n},th3{n},ph3{n}]= spectrogram(y3{n}, 128,120,128,fy3{n},'yaxis');
 spectrogram(y3{n}, 128,120,128,fy3{n},'yaxis'); colorbar('off');
 saveas(gcf,['AC',num2str(n),'.jpg']);
-%INC3{n}=rgb2gray(imread(sprintf('AC%d.jpg',n)));
-%lbpnc3{n}=extractLBPFeatures(INC3{n}, 'NumNeighbors',8,'Radius',3,'Upright',false,'CellSize',[256 256]);  % full length LBP features
-%lbpncy3{n}= extractLBPFeatures(INC3{n},'radius',3,'Normalization','L2'); % to get 59 dimentional vector
-%glcmy3{n}=graycomatrix(INC3{n});
-%haralicky3{n}=getHaralick(glcmy3{n},[1:14]);
+INC3{n}=rgb2gray(imread(sprintf('AC%d.jpg',n)));
+lbpnc3{n}=extractLBPFeatures(INC3{n}, 'NumNeighbors',8,'Radius',3,'Upright',false,'CellSize',[256 256]);  % full length LBP features
+lbpncy3{n}= extractLBPFeatures(INC3{n},'radius',3,'Normalization','L2'); % to get 59 dimentional vector
+glcmy3{n}=graycomatrix(INC3{n});
+haralicky3{n}=getHaralick(glcmy3{n},[1:14]);
 end
 
 
